@@ -1,0 +1,96 @@
+[role="tooltip"] {
+  --gds-comp-tooltip-background: var(--gds-ref-pallet-base900);
+  --gds-comp-tooltip-color: #ffffff;
+  --gds-comp-tooltip-font-weight: 500;
+  --gds-comp-tooltip-border-radius: .25rem;
+
+  --_triangle-size: 12px;
+
+  --_bottom-tip: conic-gradient(from -30deg at bottom, rgba(0,0,0,0), #000 1deg 60deg, rgba(0,0,0,0) 61deg) bottom / 100% 50% no-repeat;
+  --_top-tip: conic-gradient(from 150deg at top, rgba(0,0,0,0), #000 1deg 60deg, rgba(0,0,0,0) 61deg) top / 100% 50% no-repeat;
+  --_right-tip: conic-gradient(from -120deg at right, rgba(0,0,0,0), #000 1deg 60deg, rgba(0,0,0,0) 61deg) right / 50% 100% no-repeat;
+  --_left-tip: conic-gradient(from 60deg at left, rgba(0,0,0,0), #000 1deg 60deg, rgba(0,0,0,0) 61deg) left / 50% 100% no-repeat;
+
+  background-color: var(--gds-comp-tooltip-background);
+  color: var(--gds-comp-tooltip-color);
+  font-weight: var(--gds-comp-tooltip-font-weight);
+  border-radius: var(--gds-comp-tooltip-border-radius);
+
+  line-height: 1.5rem;
+  padding: .25rem .75rem .375rem;
+  position: absolute;
+  pointer-events: none;
+  user-select: none;
+  z-index: 1;
+  inline-size: max-content;
+
+  opacity: 0;
+  transition: opacity .2s ease, transform .2s ease;
+
+  :has(> &) {
+    position: relative;
+
+    &:is(:hover, :focus-visible, :active) > [role="tooltip"] {
+      opacity: 1;
+    }
+  }
+
+  &[tip-position="top"], &[tip-position="block-start"] {
+    inset-block-start: calc(-100%);
+
+    &:after {
+      left: 0;
+      right: 0;
+      margin: auto;
+      bottom: calc(var(--_triangle-size) / -2 + 2px);
+    }
+  }
+
+  &[tip-position="bottom"], &[tip-position="block-end"] {
+
+    inset-block-start: calc(100% + var(--_triangle-size) / 2 + 2px);
+
+    &:after {
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: calc(var(--_triangle-size) / -2 + 2px);
+    }
+  }
+
+  &[tip-position="right"], [tip-position="inline-end"] {
+
+    inset-inline-start: calc(100% + var(--_triangle-size) / 2 + 2px);
+
+    &:after {
+      inset-block: 0;
+      margin: auto;
+      left: calc(var(--_triangle-size) / -2 + 2px);
+    }
+  }
+
+  &[tip-position="left"], [tip-position="inline-start"] {
+
+    inset-inline-end: calc(100% + var(--_triangle-size) / 2 + 2px);
+
+    &:after {
+      inset-block: 0;
+      margin: auto;
+      right: calc(var(--_triangle-size) / -2 + 2px);
+    }
+  }
+
+  &::after {
+    content: "";
+    width: var(--_triangle-size);
+    height: var(--_triangle-size);
+    background: var(--gds-comp-tooltip-background);
+    position: absolute;
+    z-index: -1;
+    transform: rotate(45deg);
+    border-bottom-right-radius: 1px;
+  }
+
+
+}
+
