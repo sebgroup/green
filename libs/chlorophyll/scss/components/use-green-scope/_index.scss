@@ -7,6 +7,7 @@ $font-path: '../fonts' !default;
 @use '../../tokens/colors';
 @use '../../components/form/radio';
 @use '../../components/form/checkbox';
+@use '../../components/tooltip';
 @use '../../tokens/shape';
 
 @use '../reset/mixins' as mixins;
@@ -15,12 +16,13 @@ $font-path: '../fonts' !default;
 
 /* add variables for light mode to `.use-green` class */
 .use-green {
-  @include  shape.add-tokens();
-  @include  colors.add-color-tokens();
-  @include  radio.add-radio-tokens();
-  @include  checkbox.add-checkbox-tokens();
+  @include shape.add-tokens;
+  @include colors.add-color-tokens;
+  @include radio.add-radio-tokens;
+  @include checkbox.add-checkbox-tokens;
+  @include tooltip.add-tooltip-tokens;
   @include tokens.light-mode;
-  @include themes.add-theme();
+  @include themes.add-theme;
 }
 
 /* apply reset mixin on `.use-green` class to reset container and child elements */

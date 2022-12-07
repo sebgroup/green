@@ -1,0 +1,7 @@
+@use "mixins";
+@forward "tokens";
+
+[role="tooltip"] {
+  @include mixins.add-tool-tip;
+}
+

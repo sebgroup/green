@@ -1,0 +1,13 @@
+@mixin add-tooltip-tokens() {
+  --gds-comp-tooltip-background: var(--gds-ref-pallet-base900);
+  --gds-comp-tooltip-color: #ffffff;
+  --gds-comp-tooltip-font-weight: 500;
+  --gds-comp-tooltip-border-radius: .25rem;
+
+  --_triangle-size: 12px;
+
+  --_bottom-tip: conic-gradient(from -30deg at bottom, rgba(0,0,0,0), #000 1deg 60deg, rgba(0,0,0,0) 61deg) bottom / 100% 50% no-repeat;
+  --_top-tip: conic-gradient(from 150deg at top, rgba(0,0,0,0), #000 1deg 60deg, rgba(0,0,0,0) 61deg) top / 100% 50% no-repeat;
+  --_right-tip: conic-gradient(from -120deg at right, rgba(0,0,0,0), #000 1deg 60deg, rgba(0,0,0,0) 61deg) right / 50% 100% no-repeat;
+  --_left-tip: conic-gradient(from 60deg at left, rgba(0,0,0,0), #000 1deg 60deg, rgba(0,0,0,0) 61deg) left / 50% 100% no-repeat;
+}

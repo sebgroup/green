@@ -1,39 +1,36 @@
 import { Meta, Canvas } from '@storybook/addon-docs';
 
-export const Template = () => {
+export const Template = (args) => {
   return `
-      <div style="display:flex; align-items: center; justify-content: center; margin: 4rem 0;">
-        <div>
-          <button class="ghost">
-            <div inert role="tooltip" id="example-tool-tip" tip-position="top">This is a tooltip</div>
-            Top
-          </button>
-          <button class="ghost">
-            <div inert role="tooltip" id="example-tool-tip" tip-position="bottom">This is a tooltip</div>
-            Bottom
-          </button>
-          <button class="ghost">
-            <div inert role="tooltip" id="example-tool-tip" tip-position="right">This is a tooltip</div>
-            Right
-          </button>
-          <button class="ghost">
-            <div inert role="tooltip" id="example-tool-tip" tip-position="left">This is a tooltip</div>
-            Left
-          </button>
+        <div style="display:grid; place-items: center; height: 30rem;">
+          <div>
+            <button class="ghost">
+              <div inert="true" role="tooltip" id="example-tool-tip" tip-position="${args.tipPosition}">${args.tipContent}</div>
+              Hover me
+            </button>
+          </div>
         </div>
-      </div>
   `
 }
 
 <Meta
   title="Components/Tooltip"
-  parameters={{
-    componentIds: ['component-tooltip']
+  argTypes={{
+    tipPosition: {
+      control: 'select',
+      options: ["top", "bottom", "right", "left"]
+    },
   }}
 />
 
-<Story name="Tooltip">
-  {Template.bind({})}
+<Story
+  name="Tooltip"
+   args={{
+    tipPosition: "top",
+    tipContent: "The text will appear on your account. If you leave the field blank, the first 12 digits of the recipient account will be displayed instead."
+   }}
+>
+    {Template.bind({})}
 </Story>
 
 # Tooltip
@@ -49,4 +46,13 @@ This is the documentation page for tooltip
     <div inert role="tooltip" id="example-tool-tip" tip-position="bottom">This is a tooltip</div>
     Bottom
   </button>
+</Canvas>
+
+## Long example
+
+<Canvas>
+    <button>
+      <div inert role="tooltip" id="example-tool-tip" tip-position="bottom">The text will appear on your account. If you leave the field blank, the first 12 digits of the recipient account will be displayed instead.</div>
+      Top
+    </button>
 </Canvas>
