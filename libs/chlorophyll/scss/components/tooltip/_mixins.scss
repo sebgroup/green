@@ -69,6 +69,54 @@
     }
   }
 
+  &[tip-position="top-left"], &[tip-position="block-start-inline-start"] {
+    inset-block-start: calc(-1 * var(--_triangle-size));
+    transform: translateY(-100%);
+    left: 0;
+    text-align: start;
+
+    &:after {
+      left: 1.25rem;
+      bottom: calc(var(--_triangle-size) / -2 + 2px);
+    }
+  }
+
+  &[tip-position="top-right"], &[tip-position="block-start-inline-end"] {
+    inset-block-start: calc(-1 * var(--_triangle-size));
+    transform: translateY(-100%);
+    right: 0;
+    text-align: start;
+
+    &:after {
+      right: 1.25rem;
+      bottom: calc(var(--_triangle-size) / -2 + 2px);
+    }
+  }
+
+  &[tip-position="bottom-left"], &[tip-position="block-end-inline-start"] {
+    inset-block-end: calc(-1 * var(--_triangle-size));
+    transform: translateY(100%);
+    left: 0;
+    text-align: start;
+
+    &:after {
+      left: 1.25rem;
+      top: calc(var(--_triangle-size) / -2 + 2px);
+    }
+  }
+
+  &[tip-position="bottom-right"], &[tip-position="block-end-inline-end"] {
+    inset-block-end: calc(-1 * var(--_triangle-size));
+    transform: translateY(100%);
+    right: 0;
+    text-align: start;
+
+    &:after {
+      right: 1.25rem;
+      top: calc(var(--_triangle-size) / -2 + 2px);
+    }
+  }
+
   &::after {
     content: "";
     width: var(--_triangle-size);

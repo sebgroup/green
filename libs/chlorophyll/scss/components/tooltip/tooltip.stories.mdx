@@ -1,4 +1,4 @@
-import { Meta, Canvas } from '@storybook/addon-docs';
+import { Meta, Canvas, Story } from '@storybook/addon-docs';
 
 export const Template = (args) => {
   return `
@@ -21,6 +21,7 @@ export const Template = (args) => {
       options: ["top", "bottom", "right", "left"]
     },
   }}
+  component={Template}
 />
 
 <Story
@@ -37,22 +38,52 @@ export const Template = (args) => {
 
 This is the documentation page for tooltip
 
-<Canvas>
-  <button>
-    <div inert role="tooltip" id="example-tool-tip" tip-position="top">This is a tooltip</div>
-    Top
-  </button>
-  <button>
-    <div inert role="tooltip" id="example-tool-tip" tip-position="bottom">This is a tooltip</div>
-    Bottom
-  </button>
+<Canvas >
+    <Story name="Positioning">
+      {`
+        <button>
+        <div role="tooltip" id="example-tool-tip" tip-position="top">This is a tooltip placed over the containing element</div>
+        Top
+      </button>
+      <button>
+        <div role="tooltip" id="example-tool-tip" tip-position="bottom">This is a tooltip placed below the containing element</div>
+        Bottom
+      </button>
+      <button>
+        <div role="tooltip" id="example-tool-tip" tip-position="right">This is a tooltip placed to the right of the containing element</div>
+        Right
+      </button>
+      <button>
+        <div role="tooltip" id="example-tool-tip" tip-position="left">This is a tooltip placed to the left of the containing element</div>
+        Left
+      </button>
+      <button>
+        <div role="tooltip" id="example-tool-tip" tip-position="top-left">This is a tooltip placed to the right of the containing element</div>
+        Top Left
+      </button>
+      <button>
+        <div role="tooltip" id="example-tool-tip" tip-position="top-right">This is a tooltip placed to the right of the containing element</div>
+        Top Right
+      </button>
+      <button>
+        <div role="tooltip" id="example-tool-tip" tip-position="bottom-left">This is a tooltip placed to the right of the containing element</div>
+        Bottom Left
+      </button>
+      <button>
+        <div role="tooltip" id="example-tool-tip" tip-position="bottom-right">This is a tooltip placed to the right of the containing element</div>
+        Bottom Right
+      </button>
+      `}
+    </Story>
 </Canvas>
 
 ## Long example
 
 <Canvas>
-    <button>
-      <div inert role="tooltip" id="example-tool-tip" tip-position="bottom">The text will appear on your account. If you leave the field blank, the first 12 digits of the recipient account will be displayed instead.</div>
-      Top
-    </button>
+    <div style={{padding: "6rem", display: "grid", gap: "1rem", alignItems: "center", justifyContent: "center"}}>
+      <button>
+        <div role="tooltip" id="example-tool-tip" tip-position="top">The text will appear on your account. If you leave the field blank, the first 12 digits of the recipient account will be displayed instead.</div>
+        Long tooltip
+      </button>
+    </div>
 </Canvas>
