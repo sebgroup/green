@@ -10,15 +10,17 @@ import { Meta, Canvas } from '@storybook/addon-docs/blocks'
     </nav>
     <div class="mx-auto my-6" style={{maxWidth: '768px', marginLeft: 'auto', marginRight: 'auto'}}>
       <h1>Form validation error list</h1>
-      <p class="mb-5">Prototype testing out new features</p>
+      <p class="mb-5">Prototype</p>
       <div class="card">
         <div role="alert" class="info">
           <main>
             <p>Correct these errors:</p>
             <ul>
-              <li>Error 1</li>
-              <li>Error 2</li>
-              <li>Error 3</li>
+              <li><a href="#pnr" style={{color: 'white'}}>Incorrect personal identity number</a></li>
+              <li><a href="#name" style={{color: 'white'}}>Empty name</a></li>
+              <li><a href="#" style={{color: 'white'}}>No country selected</a></li>
+              <li><a href="#adress" style={{color: 'white'}}>Empty adresss</a></li>
+              <li><a href="#zip" style={{color: 'white'}}>Empty zip-code</a></li>
             </ul>
           </main>
         </div>
@@ -29,29 +31,27 @@ import { Meta, Canvas } from '@storybook/addon-docs/blocks'
             <div class="col-12 col-sm-auto">
               <form autocomplete="off" class="mt-7">
                 <div class="form-group">
-                  <label for="buttonGroup">Login method</label>
-                  <div id="buttonGroup" class="group size-sm">
-                    <button>Personal identity number</button>
-                    <button>User ID</button>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="input">Personal identity number</label>
-                  <input id="input" type="text" required />
+                  <label for="pnr">Personal identity number</label>
+                  <input id="pnr" type="text" required />
                   <span class="form-info">Enter your personal identity number with 10 digits.</span>
                 </div>
                 <div class="form-group">
-                  <label for="inputLong">Login code</label>
-                  <span class="form-info">(Appli 2: 9834, 7493)</span>
-                  <input id="inputLong" type="text" required />
-                  <span class="form-info">Enter the returned code with six digits.</span>
+                  <label for="name">Full name</label>
+                  <input id="name" type="text" required />
                 </div>
-                <label class="form-control">
-                  <input type="checkbox" />
-                  <span>Are you sure=</span>
-                  <i></i>
-                </label>
-                <button type="submit" class="mt-6 primary">Send</button>
+                <div class="form-group">
+                  <label for="input">Country</label>
+                  <button type="button" aria-haspopup="listbox">Choose..</button>
+                </div>
+                <div class="form-group">
+                  <label for="adress">Adress</label>
+                  <input id="adress" type="text" required />
+                </div>
+                <div class="form-group">
+                  <label for="zip">Zip-code</label>
+                  <input id="zip" type="text" required />
+                </div>
+                <button type="submit" class="mt-6 primary">Submit</button>
               </form>
             </div>
             <div class="col-12 col-sm" style={{maxWidth: '375px'}}>
