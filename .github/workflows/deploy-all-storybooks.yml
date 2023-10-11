@@ -48,7 +48,7 @@ jobs:
           elif [[ "${{ steps.branch.outputs.branch }}" == "beta" ]]; then
             echo "target=latest" >> "$GITHUB_OUTPUT"
           else
-            echo "target=pr-${{ github.event.number }}" >> "$GITHUB_OUTPUT"
+            echo "target=latest" >> "$GITHUB_OUTPUT"
           fi
         id: target
 
