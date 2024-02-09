@@ -2,6 +2,15 @@ import { Directive, PartInfo, PartType, directive } from 'lit/directive.js'
 import { ElementPart } from 'lit-html/directive.js'
 import { Part, nothing } from 'lit/html.js'
 
+/**
+ * The `forwardAttributes` directive can be used to forward attributes from the
+ * host element to an internal element.
+ *
+ * Example:
+ * ```ts
+ * html`<div ${forwardAttributes((attr) => attr.name.startsWith('aria-'))}></div>`
+ * ```
+ */
 class ForwardAttributesDirective extends Directive {
   constructor(partInfo: PartInfo) {
     super(partInfo)

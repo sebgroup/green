@@ -67,7 +67,7 @@
     height: var(--_size);
 
     inline-size: 100%;
-    justify-content: space-between;
+    justify-content: center;
     justify-items: center;
     outline-color: transparent;
     outline-offset: 2px;
@@ -126,7 +126,7 @@
 }
 
 @layer variants {
-  :host([variant*='secondary']) button {
+  button.secondary {
     --_color-bg: var(--gds-sys-color-content-content-inverse);
     --_color-text: var(--gds-sys-color-content-content);
     --_color-border: var(--gds-sys-color-stroke-stroke);
@@ -136,7 +136,7 @@
     }
   }
 
-  :host([variant*='tertiary']) button {
+  button.tertiary {
     --_color-bg: transparent;
     --_color-text: var(--gds-sys-color-content-content);
     --_color-border: transparent;
@@ -170,20 +170,20 @@
 }
 
 @layer sizes {
-  :host([size='small']) button {
+  button.small {
     --_padding-inline: var(--gds-spacing-5);
     --_padding-block: var(--gds-spacing-3);
     --_size: 2rem;
     font-size: 0.875rem;
   }
 
-  :host([size='medium']) button {
+  button.medium {
     --_padding-inline: var(--gds-spacing-5);
     --_padding-block: var(--gds-spacing-3);
     --_size: 2.5rem;
   }
 
-  :host([size='large']) button {
+  button.large {
     --_padding-inline: var(--gds-spacing-5);
     --_padding-block: var(--gds-spacing-4);
     --_size: 3rem;
@@ -191,7 +191,7 @@
 }
 
 @layer sets {
-  :host([variant='primary'][set='positive']) button {
+  button.primary.positive {
     --_bg: var(--gds-sys-color-container-container-positive);
     --_color-bg: var(--_bg);
     --_color-border: var(--_bg);
@@ -209,7 +209,7 @@
     }
   }
 
-  :host([variant='secondary'][set='positive']) button {
+  button.secondary.positive {
     --_color-bg: var(--gds-sys-color-content-content-inverse);
     --_color-text: var(--gds-sys-color-content-content-positive);
     --_color-border: var(--gds-sys-color-stroke-stroke-positive);
@@ -223,7 +223,7 @@
     }
   }
 
-  :host([variant='tertiary'][set='positive']) button {
+  button.tertiary.positive {
     --_color-bg: transparent;
     --_color-text: var(--gds-sys-color-content-content-positive);
     --_color-border: transparent;
@@ -239,7 +239,7 @@
     }
   }
 
-  :host([variant='primary'][set='negative']) button {
+  button.primary.negative {
     --_bg: var(--gds-sys-color-container-container-negative);
     --_color-bg: var(--_bg);
     --_color-text: var(--gds-sys-color-status-negative-on-negative);
@@ -258,7 +258,7 @@
     }
   }
 
-  :host([variant='secondary'][set='negative']) button {
+  button.secondary.negative {
     --_color-bg: var(--gds-sys-color-content-content-inverse);
     --_color-text: var(--gds-sys-color-content-content-negative);
     --_color-border: var(--gds-sys-color-stroke-stroke-negative);
@@ -272,7 +272,7 @@
     }
   }
 
-  :host([variant='tertiary'][set='negative']) button {
+  button.tertiary.negative {
     --_color-bg: transparent;
     --_color-text: var(--gds-sys-color-content-content-negative);
     --_color-border: transparent;

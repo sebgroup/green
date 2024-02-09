@@ -14,8 +14,8 @@ Buttons exist in three different variants, Primary, Secondary and Tertiary
 
 <Canvas>
   <gds-button>Primary</gds-button>
-  <gds-button variant="secondary">Secondary</gds-button>
-  <gds-button variant="tertiary">Tertiary</gds-button>
+  <gds-button secondary>Secondary</gds-button>
+  <gds-button tertiary>Tertiary</gds-button>
 </Canvas>
 
 ## Button sets
@@ -26,24 +26,24 @@ Each variant can belong to one of three sets, Neutral, Positive and Negative
   <story-grid>
     <story-row>
       <gds-button>Neutral primary</gds-button>
-      <gds-button variant="secondary">Neutral secondary</gds-button>
-      <gds-button variant="tertiary">Neutral tertiary</gds-button>
+      <gds-button secondary>Neutral secondary</gds-button>
+      <gds-button tertiary>Neutral tertiary</gds-button>
     </story-row>
     <story-row>
-      <gds-button set="positive">Positive primary</gds-button>
-      <gds-button set="positive" variant="secondary">
+      <gds-button positive>Positive primary</gds-button>
+      <gds-button positive secondary>
         Positive secondary
       </gds-button>
-      <gds-button set="positive" variant="tertiary">
+      <gds-button positive tertiary>
         Positive tertiary
       </gds-button>
     </story-row>
     <story-row>
-      <gds-button set="negative">Negative primary</gds-button>
-      <gds-button set="negative" variant="secondary">
+      <gds-button negative>Negative primary</gds-button>
+      <gds-button negative secondary>
         Negative secondary
       </gds-button>
-      <gds-button set="negative" variant="tertiary">
+      <gds-button negative tertiary>
         Negative tertiary
       </gds-button>
     </story-row>
@@ -55,9 +55,9 @@ Each variant can belong to one of three sets, Neutral, Positive and Negative
 Buttons can be small, medium or large. The default size is medium.
 
 <Canvas>
-  <gds-button size="small">Small</gds-button>
+  <gds-button small>Small</gds-button>
   <gds-button>Medium</gds-button>
-  <gds-button size="large">Large</gds-button>
+  <gds-button large>Large</gds-button>
 </Canvas>
 
 ## Button with icon
@@ -65,7 +65,7 @@ Buttons can be small, medium or large. The default size is medium.
 Buttons can have an icon on the left or right side of the text. These are called leading or trailing icons, and are added by placing a `gds-icon` component in either the `lead` or `trail` slot.
 
 <Canvas>
-  <gds-button>
+  <gds-button style={{'width':'200px'}}>
     <gds-icon slot="lead" name="arrow-down" />
     Leading icon
   </gds-button>
@@ -80,13 +80,13 @@ Buttons can have an icon on the left or right side of the text. These are called
 If a single `gds-icon` is the only child of a button, it will render as a circular icon button.
 
 <Canvas>
-  <gds-button size="small">
+  <gds-button small>
     <gds-icon name="arrow" />
   </gds-button>
   <gds-button>
     <gds-icon name="arrow" />
   </gds-button>
-  <gds-button size="large">
+  <gds-button large>
     <gds-icon name="arrow" />
   </gds-button>
 </Canvas>
@@ -98,10 +98,10 @@ instead.
 
 <Canvas>
   <gds-button disabled>Primary</gds-button>
-  <gds-button variant="secondary" set="positive" disabled>
+  <gds-button secondary positive disabled>
     Secondary
   </gds-button>
-  <gds-button variant="tertiary" disabled>
+  <gds-button tertiary disabled>
     Tertiary
   </gds-button>
 </Canvas>

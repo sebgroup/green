@@ -14,7 +14,7 @@ import {
 import { stripWhitespace } from '../../utils/helpers/strip-white-space'
 import { classMap } from 'lit/directives/class-map.js'
 import { GdsFormControlElement } from '../../components/form-control'
-import { forwardAttributes } from '../../utils/directives'
+import { boolAttributeGroup } from '../../utils/decorators'
 
 // Create a customized `html` template tag that strips whitespace and applies custom element scoping.
 const html = stripWhitespace(customElementHtml)
@@ -27,6 +27,8 @@ const html = stripWhitespace(customElementHtml)
  * @slot - Content to be displayed as the button label.
  * @slot lead - An optional slot that allows a `gds-icon` element to be placed before the label.
  * @slot trail - An optional slot that allows a `gds-icon` element to be placed after the label.
+ *
+ * @csspart button - The button element.
  *
  * @event click - Fired when the button is clicked.
  */
@@ -54,20 +56,20 @@ export class GdsButton<ValueT = any> extends GdsFormControlElement<ValueT> {
   /**
    * The variant of the button. Defaults to "primary".
    */
-  @property({ reflect: true })
-  variant: 'primary' | 'secondary' | 'tertiary' = 'primary'
+  @boolAttributeGroup('primary', 'secondary', 'tertiary')
+  private _prio = 'primary'
 
   /**
    * Defines which set the button belongs to. Defaults to "neutral".
    */
-  @property({ reflect: true })
-  set: 'neutral' | 'positive' | 'negative' = 'neutral'
+  @boolAttributeGroup('neutral', 'positive', 'negative')
+  private _set = 'neutral'
 
   /**
    * Sets the size of the button. Defaults to "small".
    */
-  @property({ reflect: true })
-  size: 'small' | 'medium' | 'large' = 'medium'
+  @boolAttributeGroup('small', 'medium', 'large')
+  private _size = 'medium'
 
   /**
    * The label of the button. Use this to add an accessible label to the button when no text is provided in the default slot.
@@ -87,16 +89,22 @@ export class GdsButton<ValueT = any> extends GdsFormControlElement<ValueT> {
   render() {
     return html`
       <button
-        class="${classMap({ circle: this.#isIconButton })}"
+        class="${classMap({
+          circle: this.#isIconButton,
+          [this._prio]: true,
+          [this._set]: true,
+          [this._size]: true,
+        })}"
         ?type="${this.type}"
         ?disabled="${this.disabled}"
         @click="${this.#handleClick}"
         aria-label="${this.label}"
+        part="button"
       >
         <slot name="lead" gds-allow="gds-icon"></slot>
         <slot
           @slotchange=${this.#mainSlotChange}
-          gds-allow="#text gds-icon"
+          gds-allow="#text gds-icon gds-badge"
         ></slot>
         <slot name="trail" gds-allow="gds-icon"></slot>
         <gds-ripple></gds-ripple>
