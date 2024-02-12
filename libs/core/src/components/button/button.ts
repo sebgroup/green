@@ -2,7 +2,6 @@ import { unsafeCSS } from 'lit'
 import { property, query } from 'lit/decorators.js'
 import { constrainSlots } from '../../utils/helpers'
 import '../icon/icon'
-import '../../primitives/ripple/ripple'
 
 import { tokens } from '../../tokens.style'
 import style from './button.style.css'
@@ -15,6 +14,9 @@ import { stripWhitespace } from '../../utils/helpers/strip-white-space'
 import { classMap } from 'lit/directives/class-map.js'
 import { GdsFormControlElement } from '../../components/form-control'
 import { boolAttributeGroup } from '../../utils/decorators'
+
+import '../../primitives/ripple/ripple'
+import type { GdsRipple } from '../../primitives/ripple/ripple'
 
 // Create a customized `html` template tag that strips whitespace and applies custom element scoping.
 const html = stripWhitespace(customElementHtml)
@@ -78,6 +80,7 @@ export class GdsButton<ValueT = any> extends GdsFormControlElement<ValueT> {
   label = ''
 
   @query('slot:not([name])') private _mainSlot?: HTMLSlotElement
+  @query('#ripple') private _elRipple?: GdsRipple
 
   #isIconButton = false
 
@@ -107,7 +110,7 @@ export class GdsButton<ValueT = any> extends GdsFormControlElement<ValueT> {
           gds-allow="#text gds-icon gds-badge"
         ></slot>
         <slot name="trail" gds-allow="gds-icon"></slot>
-        <gds-ripple></gds-ripple>
+        <gds-ripple id="ripple"></gds-ripple>
       </button>
     `
   }
@@ -131,6 +134,8 @@ export class GdsButton<ValueT = any> extends GdsFormControlElement<ValueT> {
         detail: e,
       })
     )
+
+    if (e.clientX === 0 && e.clientY === 0) this._elRipple?.onmousedown(e)
 
     if (this.form) {
       if (this.type === 'submit') {
