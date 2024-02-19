@@ -9,8 +9,7 @@ export * from './switch/switch'
 export * from './badge/badge'
 export * from './tooltip/tooltip'
 export * from '../primitives/listbox/option'
-
+export * from '../primitives/menu/menu-heading'
 export * from './context-menu/context-menu'
 export * from '../primitives/menu/menu-item'
-
 export * from './datepicker/datepicker'
