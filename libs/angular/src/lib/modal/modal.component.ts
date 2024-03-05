@@ -159,6 +159,7 @@ export class NggModalComponent implements OnDestroy, OnInit {
   template: `
     <h3 data-testid="modal-header-text">{{ header }}</h3>
     <button
+      type="button"
       data-testid="modal-close-button"
       class="close"
       (click)="this.handleClose($event)"
