@@ -73,6 +73,12 @@
         "command": "npx stylelint \"libs/core/**/*.(scss|css)\""
       }
     },
+    "build-tailwind": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "cd libs/core && npx tailwindcss -o src/utilities.css && npx postcss src/utilities.css --local-plugins --no-map --use ../../libs/core/build-scripts/postcss/host-scope-classes.cjs -o src/_utilities.css"
+      }
+    },
     "test-local": {
       "executor": "nx:run-commands",
       "dependsOn": ["build-with-types-and-scoping"],
