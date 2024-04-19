@@ -1,4 +1,4 @@
-import { LitElement } from 'lit'
+import { LitElement, unsafeCSS } from 'lit'
 import { getUnscopedTagName } from './utils/helpers/custom-element-scoping'
 
 export class GdsElement extends LitElement {
